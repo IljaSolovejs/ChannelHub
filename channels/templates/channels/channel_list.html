@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}TV Channels Directory{% endblock title %}
+
+{% block content %}
+<h1 class="mb-4">TV Channels</h1>
+
+<div class="row">
+    {% for channel in channel_list %}
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">{{ channel.name }}</h5>
+                <p class="card-text">{{ channel.description|truncatewords:20 }}</p>
+                <p class="card-text"><small>Genre: {{ channel.get_genre_display }}</small></p>
+                <p class="card-text"><small>Country: {{ channel.country }}</small></p>
+                <a href="{{ channel.get_absolute_url }}" class="btn btn-primary">View Channel</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>No channels added yet.</p>
+    {% endfor %}
+</div>
+{% endblock content %}
