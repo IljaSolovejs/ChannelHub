@@ -1,28 +1,29 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #141414;
-    color: #fff;
+    background-color: #ffffff;
+    color: #222;
 }
 
 h1, h2, h3 {
-    color: #fff;
+    color: #222;
 }
 
 a {
-    color: #e50914;
+    color: #005f5f;
 }
 
 a:hover {
-    color: #ff2929;
+    color: #f5a623;
 }
 
 .navbar {
-    background-color: #000 !important;
-    border-bottom: 2px solid #e50914;
+    background-color: #004d4d !important;
+    border: none !important;
+    border-bottom: 3px solid #f5a623 !important;
 }
 
 .navbar-brand {
-    color: #e50914 !important;
+    color: #ffffff !important;
     font-weight: bold;
     font-size: 1.4em;
 }
@@ -32,50 +33,68 @@ a:hover {
 }
 
 .nav-link:hover {
-    color: #e50914 !important;
+    color: #f5a623 !important;
 }
 
 .card {
-    background-color: #1f1f1f;
-    color: #fff;
-    border: 1px solid #333;
+    background-color: #c8f0ee;
+    color: #222;
+    border: 1px solid #005f5f;
+    border-bottom: 4px solid #005f5f;
 }
 
 .card-title {
-    color: #fff;
+    color: #222;
+    font-weight: bold;
 }
 
 .card-text {
-    color: #ccc;
+    color: #333;
 }
 
 .btn-primary {
-    background-color: #e50914;
-    border-color: #e50914;
+    background-color: #f5a623;
+    border-color: #f5a623;
+    color: #222;
+    font-weight: bold;
 }
 
 .btn-primary:hover {
-    background-color: #b2070f;
-    border-color: #b2070f;
+    background-color: #d4891a;
+    border-color: #d4891a;
+    color: #222;
 }
 
 .btn-secondary {
-    background-color: #333;
-    border-color: #333;
+    background-color: #005f5f;
+    border-color: #005f5f;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #004040;
+    border-color: #004040;
+    color: #fff;
+}
+
+.btn-danger {
+    background-color: #c0392b;
+    border-color: #c0392b;
 }
 
 footer {
     text-align: center;
     font-size: 0.85em;
-    color: #888;
+    color: #555;
     padding: 20px 0;
-    border-top: 1px solid #333;
+    border-top: 2px solid #f5a623;
     margin-top: 40px;
-    background-color: #000;
+    background-color: #004d4d;
+    color: #fff;
 }
 
 input, select, textarea {
-    background-color: #1f1f1f !important;
-    color: #fff !important;
-    border: 1px solid #444 !important;
+    background-color: #f0fafa !important;
+    color: #222 !important;
+    border: 1px solid #005f5f !important;
 }
