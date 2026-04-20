@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}TV Channels Directory{% endblock title %}</title>
+    <title>{% block title %}ChannelHub{% endblock title %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="{% static 'main.css' %}" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
@@ -13,7 +13,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="{% url 'channel_list' %}">TV Channels</a>
+        <a class="navbar-brand" href="{% url 'channel_list' %}">ChannelHub</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -32,7 +32,10 @@
                         <a class="nav-link" href="{% url 'channel_create' %}">Add Channel</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}">Logout ({{ user.username }})</a>
+                        <form method="post" action="{% url 'logout' %}" class="d-inline">
+                            {% csrf_token %}
+                            <button type="submit" class="nav-link btn btn-link">Logout ({{ user.username }})</button>
+                        </form>
                     </li>
                 {% else %}
                     <li class="nav-item">
@@ -47,14 +50,14 @@
     </div>
 </nav>
 
-<div class="container mt-4">
+<div class="container mt-4 flex-grow-1">
     {% block content %}
     {% endblock content %}
 </div>
 
 <footer class="mt-5">
     <div class="container">
-        <p>&copy;2026 TV Channels Directory</p>
+        <p>&copy;2026 ChannelHub</p>
     </div>
 </footer>
 

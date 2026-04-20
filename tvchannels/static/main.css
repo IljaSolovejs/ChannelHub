@@ -2,6 +2,9 @@ body {
     font-family: Arial, sans-serif;
     background-color: #ffffff;
     color: #222;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 h1, h2, h3 {

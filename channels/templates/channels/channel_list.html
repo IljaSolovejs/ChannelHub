@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}TV Channels Directory{% endblock title %}
+{% block title %}ChannelHub{% endblock title %}
 
 {% block content %}
 <h1 class="mb-4">TV Channels</h1>
@@ -17,7 +17,7 @@
         </div>
         <div class="col-auto">
             <button type="submit" class="btn btn-primary">Filter</button>
-            <a href="{% url 'channel_list' %}" class="btn btn-secondary">Clear</button>
+            <a href="{% url 'channel_list' %}" class="btn btn-secondary">Clear</a>
         </div>
     </div>
 </form>

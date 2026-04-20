@@ -35,5 +35,12 @@
 <p>No programmes added yet.</p>
 {% endif %}
 
-<a href="{% url 'channel_list' %}" class="btn btn-secondary mt-3">Back to Channels</a>
+<div class="mt-3">
+    <a href="{% url 'channel_list' %}" class="btn btn-secondary">Back to Channels</a>
+    {% if user.is_authenticated %}
+    <a href="{% url 'channel_update' channel.pk %}" class="btn btn-primary ms-2">Edit Channel</a>
+    <a href="{% url 'channel_delete' channel.pk %}" class="btn btn-danger ms-2">Delete Channel</a>
+    <a href="{% url 'programme_create' %}" class="btn btn-secondary ms-2">Add Programme</a>
+    {% endif %}
+</div>
 {% endblock content %}
