@@ -19,6 +19,7 @@ class Channel(models.Model):
     genre = models.CharField(max_length=100, choices=GENRE_CHOICES)
     country = models.CharField(max_length=100, blank=True)
     added_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    logo = models.ImageField(default='placeholder.png', blank=True)
 
     def __str__(self):
         return self.name
@@ -32,6 +33,7 @@ class Programme(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
     air_time = models.CharField(max_length=100, blank=True)
+    image = models.ImageField(default='placeholder.png', blank=True)
 
     def __str__(self):
         return self.title
