@@ -9,7 +9,10 @@
     {% for channel in channel_list %}
     <div class="col-md-4">
         <div class="card mb-4">
-            <div class="card-body">
+            {% if channel.logo %}
+            <img src="{{ channel.logo.url }}" class="card-img-top" alt="{{ channel.name }} logo" style="height:150px; object-fit:cover;">
+            {% endif %}
+        <div class="card-body">
                 <h5 class="card-title">{{ channel.name }}</h5>
                 <p class="card-text">{{ channel.description|truncatewords:20 }}</p>
                 <p class="card-text"><small>Genre: {{ channel.get_genre_display }}</small></p>

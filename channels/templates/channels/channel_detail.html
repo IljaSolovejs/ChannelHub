@@ -3,6 +3,9 @@
 {% block title %}{{ channel.name }}{% endblock title %}
 
 {% block content %}
+{% if channel.logo %}
+<img src="{{ channel.logo.url }}" alt="{{ channel.name }} logo" style="max-height:200px;" class="mb-3">
+{% endif %}
 <h1 class="mb-3">{{ channel.name }}</h1>
 <p><strong>Genre:</strong> {{ channel.get_genre_display }}</p>
 <p><strong>Country:</strong> {{ channel.country }}</p>
@@ -16,6 +19,9 @@
     {% for programme in channel.programme_set.all %}
     <div class="col-md-4">
         <div class="card mb-4">
+            {% if programme.image %}
+            <img src="{{ programme.image.url }}" class="card-img-top" alt="{{ programme.title }}" style="height:150px; object-fit:cover;">
+            {% endif %}
             <div class="card-body">
                 <h5 class="card-title">{{ programme.title }}</h5>
                 <p class="card-text">{{ programme.description|truncatewords:20 }}</p>

@@ -17,12 +17,12 @@ class ChannelDetail(DetailView):
 class ChannelCreate(LoginRequiredMixin, CreateView):
     model = Channel
     template_name = 'channels/channel_create_form.html'
-    fields = ['name', 'description', 'genre', 'country']
+    fields = ['name', 'description', 'genre', 'country', 'logo']
 
 class ChannelUpdate(LoginRequiredMixin, UpdateView):
     model = Channel
     template_name = 'channels/channel_update_form.html'
-    fields = ['name', 'description', 'genre', 'country']
+    fields = ['name', 'description', 'genre', 'country', 'logo']
 
 class ChannelDelete(LoginRequiredMixin, DeleteView):
     model = Channel
@@ -32,7 +32,7 @@ class ChannelDelete(LoginRequiredMixin, DeleteView):
 class ProgrammeCreate(LoginRequiredMixin, CreateView):
     model = Programme
     template_name = 'channels/programme_create_form.html'
-    fields = ['channel', 'title', 'description', 'air_time']
+    fields = ['channel', 'title', 'description', 'air_time', 'image']
 
     def get_success_url(self):
         return self.object.channel.get_absolute_url()
