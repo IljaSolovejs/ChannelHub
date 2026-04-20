@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}{{ channel.name }}{% endblock title %}
+
+{% block content %}
+<h1 class="mb-3">{{ channel.name }}</h1>
+<p><strong>Genre:</strong> {{ channel.get_genre_display }}</p>
+<p><strong>Country:</strong> {{ channel.country }}</p>
+<p>{{ channel.description }}</p>
+
+<hr>
+<h2 class="mt-4">Programmes</h2>
+
+{% if channel.programme_set.all %}
+<div class="row">
+    {% for programme in channel.programme_set.all %}
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">{{ programme.title }}</h5>
+                <p class="card-text">{{ programme.description|truncatewords:20 }}</p>
+                <p class="card-text"><small>Air time: {{ programme.air_time }}</small></p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p>No programmes added yet.</p>
+{% endif %}
+
+<a href="{% url 'channel_list' %}" class="btn btn-secondary mt-3">Back to Channels</a>
+{% endblock content %}
