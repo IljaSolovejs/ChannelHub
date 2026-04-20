@@ -5,6 +5,23 @@
 {% block content %}
 <h1 class="mb-4">TV Channels</h1>
 
+<form method="get" class="mb-4">
+    <div class="row g-2 align-items-center">
+        <div class="col-auto">
+            <select name="genre" class="form-select">
+                <option value="">All Genres</option>
+                {% for value, label in genres %}
+                    <option value="{{ value }}" {% if value == selected_genre %}selected{% endif %}>{{ label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary">Filter</button>
+            <a href="{% url 'channel_list' %}" class="btn btn-secondary">Clear</button>
+        </div>
+    </div>
+</form>
+
 <div class="row">
     {% for channel in channel_list %}
     <div class="col-md-4">
