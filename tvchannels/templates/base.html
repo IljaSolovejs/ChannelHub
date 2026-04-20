@@ -22,6 +22,23 @@
                     <a class="nav-link" href="{% url 'channel_list' %}">Channels</a>
                 </li>
             </ul>
+            <ul class="navbar-nav">
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'channel_create' %}">Add Channel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Logout ({{ user.username }})</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">Register</a>
+                    </li>
+                {% endif %}
+            </ul>
         </div>
     </div>
 </nav>
