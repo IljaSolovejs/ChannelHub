@@ -5,12 +5,24 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 
-from .models import Channel, Programme
+from .models import Channel, Programme, GENRE_CHOICES
 from .forms import ContactForm
 
 class ChannelList(ListView):
     model = Channel
     template_name = 'channels/channel_list.html'
+
+    def get_queryset(self):
+        genre = self.request.GET.get('genre')
+        if genre:
+            return Channel.objects.filter(genre=genre)
+        return Channel.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['genres'] = GENRE_CHOICES
+        context['selected_genre'] = self.request.GET.get('genre', '')
+        return context
 
 class ChannelDetail(DetailView):
     model = Channel
