@@ -3,7 +3,18 @@
 {% block title %}ChannelHub{% endblock title %}
 
 {% block content %}
-<h1 class="mb-4">TV Channels</h1>
+<div class="p-5 mb-4 rounded" style="background-color: #c8f0ee; border: 1px solid #005f5f;">
+    <h1 class="display-5 fw-bold">Welcome to ChannelHub!</h1>
+    <p class="lead">Explore TV channels from all around the world. Browse by genre, discover new programmes and find out what each channel has to offer. Register as a broadcaster to add your own channels.</p>
+    {% if not user.is_authenticated %}
+    <a href="{% url 'register' %}" class="btn btn-primary me-2">Get Started</a>
+    <a href="{% url 'login' %}" class="btn btn-secondary">Login</a>
+    {% else %}
+    <a href="{% url 'channel_create' %}" class="btn btn-primary">Add a Channel</a>
+    {% endif %}
+</div>
+
+<h2 class="mb-4">TV Channels</h2>
 
 <form method="get" class="mb-4">
     <div class="row g-2 align-items-center">
