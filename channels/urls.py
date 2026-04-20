@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    path('contact/', views.contact, name='contact'),
     path('', views.ChannelList.as_view(), name='channel_list'),
     path('channel/create/', views.ChannelCreate.as_view(), name='channel_create'),
     path('channel/<int:pk>/', views.ChannelDetail.as_view(), name='channel_detail'),
