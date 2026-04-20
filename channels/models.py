@@ -14,7 +14,7 @@ GENRE_CHOICES = [
 ]
 
 class Channel(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     genre = models.CharField(max_length=100, choices=GENRE_CHOICES)
     country = models.CharField(max_length=100, blank=True)
@@ -25,3 +25,13 @@ class Channel(models.Model):
 
     def get_absolute_url(self):
         return reverse('channel_detail', kwargs={'pk': self.pk})
+
+
+class Programme(models.Model):
+    channel = models.ForeignKey(Channel, on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
+    description = models.TextField(blank=True)
+    air_time = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return self.title
