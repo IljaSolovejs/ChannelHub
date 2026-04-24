@@ -13,15 +13,20 @@ class ChannelList(ListView):
     template_name = 'channels/channel_list.html'
 
     def get_queryset(self):
+        queryset = Channel.objects.all()
         genre = self.request.GET.get('genre')
+        search = self.request.GET.get('search')
         if genre:
-            return Channel.objects.filter(genre=genre)
-        return Channel.objects.all()
+            queryset = queryset.filter(genre=genre)
+        if search:
+            queryset = queryset.filter(name__icontains=search)
+        return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['genres'] = GENRE_CHOICES
         context['selected_genre'] = self.request.GET.get('genre', '')
+        context['search'] = self.request.GET.get('search', '')
         return context
 
 class ChannelDetail(DetailView):
