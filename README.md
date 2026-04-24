@@ -11,6 +11,7 @@ ChannelHub is a Django-based web application for browsing and managing TV channe
 ## Features
 
 - Browse TV channels with genre filtering
+- Search channels by name
 - View channel details and their programmes
 - User registration and login system
 - Add, edit and delete channels (authenticated users only)
